@@ -31,7 +31,7 @@ class CustomAppButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(text, style: textStyle ?? context.semiBold16White),
+        child: Text(text, style: textStyle ?? context.semiBold18White),
       ),
     );
   }

@@ -31,7 +31,7 @@ class OnBoardingSectionWidget extends StatelessWidget {
             SizedBox(height: 30.h),
             Text(
               item.title,
-              style: context.bold24TextMain,
+              style: context.bold28TextMain,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 11.h),
