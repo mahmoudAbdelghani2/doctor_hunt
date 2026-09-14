@@ -19,6 +19,14 @@ abstract class AppRouter {
         path: kChooseRolePath,
         builder: (context, state) => const ChooseRoleScreen(),
       ),
+      GoRoute(
+        path: kLoginPath,
+        builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: kSignupPath,
+        builder: (context, state) => const ChooseRoleScreen(),
+      ),
     ],
   );
 }
