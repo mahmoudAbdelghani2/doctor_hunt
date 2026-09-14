@@ -7,10 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 
 extension WeightAtoms on BuildContext {
-  TextStyle get style => Theme.of(this).textTheme.titleMedium!.copyWith(
-    color: Color(0xFF1A1A1A),
-    fontFamily: 'Almarai',
-  );
+  TextStyle get style =>
+      Theme.of(this).textTheme.titleMedium!.copyWith(color: Color(0xFF1A1A1A));
   TextStyle get light => style.copyWith(fontWeight: FontWeight.w300);
   TextStyle get regular => style.copyWith(fontWeight: FontWeight.normal);
   TextStyle get medium => style.copyWith(fontWeight: FontWeight.w500);

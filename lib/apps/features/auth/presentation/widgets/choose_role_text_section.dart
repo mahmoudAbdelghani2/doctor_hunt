@@ -21,7 +21,7 @@ class ChooseRoleTextSection extends StatelessWidget {
         Text(
           'Doctor Hunt',
           textAlign: TextAlign.center,
-          style: context.bold26TextMain.copyWith(fontFamily: 'Rubik'),
+          style: context.bold26TextMain,
         ),
         SizedBox(height: 57.h),
         Text(

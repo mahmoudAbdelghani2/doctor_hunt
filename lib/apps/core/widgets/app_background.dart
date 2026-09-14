@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:doctor_hunt/generated/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +22,7 @@ class AppBackground extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [const Color(0xFFC8F3F1), Colors.white],
+                  colors: [AppColors.primary.withAlpha(5), Colors.white],
                 ),
               ),
             ),
@@ -36,7 +37,7 @@ class AppBackground extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [const Color(0xFFD3F8EC), Colors.white],
+                  colors: [AppColors.primary.withAlpha(5), Colors.white],
                 ),
               ),
             ),

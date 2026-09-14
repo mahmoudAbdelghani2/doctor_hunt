@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData.light(),
+          theme: ThemeData.light().copyWith(
+            textTheme: GoogleFonts.rubikTextTheme(ThemeData.light().textTheme),
+          ),
           routerConfig: AppRouter.router,
         );
       },
