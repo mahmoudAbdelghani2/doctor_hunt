@@ -2,6 +2,7 @@ import 'package:doctor_hunt/apps/core/utils/consts.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/choose_role_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/signup_screen.dart';
+import 'package:doctor_hunt/apps/features/main/presentation/screens/main_screen.dart';
 import 'package:doctor_hunt/apps/features/splash/presentation/screens/onboarding_screen.dart';
 import 'package:doctor_hunt/apps/features/splash/presentation/screens/splash_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -29,6 +30,7 @@ abstract class AppRouter {
         path: kSignupPath,
         builder: (context, state) => const SigupScreen(),
       ),
+      GoRoute(path: kMainPath, builder: (context, state) => const MainScreen()),
     ],
   );
 }

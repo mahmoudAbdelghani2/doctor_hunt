@@ -46,7 +46,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             Text(widget.labelText),
           ],
         ),
-        labelStyle: context.regular16TextSub,
+        hintStyle: context.regular16TextSub,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(color: Colors.grey.shade400, width: 1.0),

@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/app_background.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_rishtext_widget.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/reset_pass_bottomsheet.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
 import 'package:doctor_hunt/generated/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
@@ -66,18 +67,33 @@ class _LoginScreenState extends State<LoginScreen> {
                           isPassword: true,
                         ),
                         SizedBox(height: 32.h),
-                        CustomAppButton(text: "Login", onPressed: () {}),
+                        CustomAppButton(
+                          text: "Login",
+                          onPressed: () {
+                            GoRouter.of(context).pushReplacement(kMainPath);
+                          },
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Forgot Password?",
-                                style: context.regular14TextSub.copyWith(
-                                  color: AppColors.primary,
+                            onPressed: () {
+                              showModalBottomSheet(
+                                context: context,
+                                isScrollControlled: true,
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(24.r),
+                                  ),
                                 ),
+                                builder: (context) =>
+                                    const ResetPasswordFlowBottomSheet(),
+                              );
+                            },
+                            child: Text(
+                              "Forgot Password?",
+                              style: context.regular14TextSub.copyWith(
+                                color: AppColors.primary,
                               ),
                             ),
                           ),
