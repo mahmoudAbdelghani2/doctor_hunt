@@ -40,7 +40,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 },
               )
             : null,
-        label: Row(
+        hint: Row(
           children: [
             SizedBox(width: 15.w),
             Text(widget.labelText),

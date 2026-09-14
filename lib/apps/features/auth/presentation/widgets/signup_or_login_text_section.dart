@@ -4,17 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SignupTextSection extends StatelessWidget {
-  const SignupTextSection({super.key});
+class SignupOrLoginTextSection extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  const SignupOrLoginTextSection({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Join us to start searching", style: context.semiBold24Black),
+        Text(title, style: context.semiBold24Black),
         SizedBox(height: 15.h),
         Text(
-          "You can search course, apply course and findscholarship for abroad studies",
+          subtitle,
           textAlign: TextAlign.center,
           style: context.regular14TextSub,
         ),
@@ -44,7 +50,11 @@ class SignupTextSection extends StatelessWidget {
     required BuildContext context,
   }) {
     return Card(
-      elevation: 2,
+      elevation: 1,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      borderOnForeground: true,
+      shadowColor: Colors.grey.shade300,
+      margin: EdgeInsets.zero,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

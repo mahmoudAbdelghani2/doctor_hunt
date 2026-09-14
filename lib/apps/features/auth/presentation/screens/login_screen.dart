@@ -1,9 +1,26 @@
+import 'package:doctor_hunt/apps/core/utils/consts.dart';
 import 'package:doctor_hunt/apps/core/widgets/app_background.dart';
+import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
+import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_rishtext_widget.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
+import 'package:doctor_hunt/generated/app_colors.dart';
+import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +29,73 @@ class LoginScreen extends StatelessWidget {
           const AppBackground(),
           SafeArea(
             child: SingleChildScrollView(
-              child: Center(child: Column(children: [Text('Login Screen')])),
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 140.h, left: 20.w, right: 20.w),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        SignupOrLoginTextSection(
+                          title: "Welcome back",
+                          subtitle:
+                              "You can search course, apply course and find scholarship for abroad studies",
+                        ),
+                        SizedBox(height: 37.h),
+                        CustomTextFormField(
+                          controller: _emailController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            return null;
+                          },
+                          labelText: 'Email',
+                          isPassword: false,
+                        ),
+                        SizedBox(height: 18.h),
+                        CustomTextFormField(
+                          controller: _passwordController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                          labelText: 'Password',
+                          isPassword: true,
+                        ),
+                        SizedBox(height: 32.h),
+                        CustomAppButton(text: "Login", onPressed: () {}),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {},
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot Password?",
+                                style: context.regular14TextSub.copyWith(
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 50.h),
+                        CustomRishTextWidget(
+                          text1: "Don't have an account? ",
+                          text2: "Sign Up",
+                          onTap: () {
+                            GoRouter.of(context).pushReplacement(kSignupPath);
+                          },
+                        ),
+                        SizedBox(height: 30.h),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ],

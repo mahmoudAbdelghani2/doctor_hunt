@@ -3,7 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/app_background.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_rishtext_widget.dart';
-import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_text_section.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +36,11 @@ class _SigupScreenState extends State<SigupScreen> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        SignupTextSection(),
+                        SignupOrLoginTextSection(
+                          title: "Join us to start searching",
+                          subtitle:
+                              "You can search course, apply course and find scholarship for abroad studies",
+                        ),
                         SizedBox(height: 34.h),
                         CustomTextFormField(
                           controller: _nameController,
