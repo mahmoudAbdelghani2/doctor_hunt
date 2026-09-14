@@ -3,3 +3,4 @@ const kHomePath = '/home';
 const kLoginPath = '/login';
 const kSignupPath = '/signup';
 const kOnboardingPath = '/onboarding';
+const kChooseRolePath = '/choose-role';
