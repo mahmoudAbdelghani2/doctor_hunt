@@ -1,5 +1,9 @@
+import 'package:doctor_hunt/apps/core/logic/locale_cubit.dart';
 import 'package:doctor_hunt/apps/core/router/app_router.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,12 +22,29 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData.light().copyWith(
-            textTheme: GoogleFonts.rubikTextTheme(ThemeData.light().textTheme),
+        return BlocProvider(
+          create: (context) => LocaleCubit(),
+          child: BlocBuilder<LocaleCubit, Locale>(
+            builder: (context, currentLocale) {
+              return MaterialApp.router(
+                locale: currentLocale,
+                localizationsDelegates: [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData.light().copyWith(
+                  textTheme: GoogleFonts.rubikTextTheme(
+                    ThemeData.light().textTheme,
+                  ),
+                ),
+                routerConfig: AppRouter.router,
+              );
+            },
           ),
-          routerConfig: AppRouter.router,
         );
       },
     );

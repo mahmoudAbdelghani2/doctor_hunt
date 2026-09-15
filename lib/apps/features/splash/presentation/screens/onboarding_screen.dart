@@ -4,6 +4,8 @@ import 'package:doctor_hunt/apps/features/splash/data/models/onboarding_model.da
 import 'package:doctor_hunt/apps/features/splash/presentation/widgets/buttons_section_widget.dart';
 import 'package:doctor_hunt/apps/features/splash/presentation/widgets/onboarding_section_widget.dart';
 import 'package:doctor_hunt/generated/app_colors.dart';
+import 'package:doctor_hunt/generated/image_assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +18,23 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  List<OnboardingModel> get pages => [
+    OnboardingModel(
+      image: kOnboardingImage1Path,
+      title: S.of(context).onboardingTitleOne,
+      description: S.of(context).onboardingDescOne,
+    ),
+    OnboardingModel(
+      image: kOnboardingImage2Path,
+      title: S.of(context).onboardingTitleTwo,
+      description: S.of(context).onboardingDescTwo,
+    ),
+    OnboardingModel(
+      image: kOnboardingImage3Path,
+      title: S.of(context).onboardingTitleThree,
+      description: S.of(context).onboardingDescThree,
+    ),
+  ];
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
