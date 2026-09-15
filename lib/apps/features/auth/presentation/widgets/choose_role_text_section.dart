@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/generated/image_assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,13 +26,13 @@ class ChooseRoleTextSection extends StatelessWidget {
         ),
         SizedBox(height: 57.h),
         Text(
-          'Choose your role',
+          S.of(context).chooseYourRole,
           textAlign: TextAlign.center,
           style: context.regular28TextMain,
         ),
         SizedBox(height: 8.h),
         Text(
-          'The selected role determines the experience and available features',
+          S.of(context).chooseRoleSubtitle,
           textAlign: TextAlign.center,
           maxLines: 3,
           style: context.regular14TextSub,

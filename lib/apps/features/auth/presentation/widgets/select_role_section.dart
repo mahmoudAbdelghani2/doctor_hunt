@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/role_card_widget.dart';
@@ -21,9 +22,8 @@ class SelectRoleSection extends StatelessWidget {
       children: [
         RoleCardItem(
           iconPath: kPatientIconPath,
-          title: 'Patient',
-          subtitle:
-              'Find doctors, book appointments, and manage your medical records.',
+          title: S.of(context).patient,
+          subtitle: S.of(context).patientDesc,
           isSelected: selectedRole == UserRole.patient,
           onTap: () => onRoleSelected(UserRole.patient),
         ),
@@ -32,8 +32,8 @@ class SelectRoleSection extends StatelessWidget {
 
         RoleCardItem(
           iconPath: kAdminIconPath,
-          title: 'Admin',
-          subtitle: 'Manage doctors, appointments, users, and the platform.',
+          title: S.of(context).admin,
+          subtitle: S.of(context).adminDesc,
           isSelected: selectedRole == UserRole.admin,
           onTap: () => onRoleSelected(UserRole.admin),
         ),

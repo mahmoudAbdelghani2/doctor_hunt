@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
@@ -89,20 +90,20 @@ class _ResetPasswordFlowBottomSheetState
       key: const ValueKey(0),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Forgot password', style: context.bold24Black),
+        Text(S.of(context).forgotPassword, style: context.bold24Black),
         SizedBox(height: 12.h),
         Text(
-          'Enter your email for the verification proccesss,we will send 4 digits code to your email.',
+          S.of(context).forgotPasswordSubtitle,
           style: context.regular14TextSub,
         ),
         SizedBox(height: 36.h),
         CustomTextFormField(
-          labelText: 'Email',
+          labelText: S.of(context).email,
           controller: _emailController,
           isPassword: false,
         ),
         SizedBox(height: 24.h),
-        CustomAppButton(text: 'Continue', onPressed: _nextStep),
+        CustomAppButton(text: S.of(context).continueText, onPressed: _nextStep),
         SizedBox(height: 24.h),
       ],
     );
@@ -113,10 +114,10 @@ class _ResetPasswordFlowBottomSheetState
       key: const ValueKey(1),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Enter 4 Digits Code', style: context.bold24Black),
+        Text(S.of(context).enterDigitsCodeTitle, style: context.bold24Black),
         SizedBox(height: 12.h),
         Text(
-          'Enter the 4 digits code that you received on your email.',
+          S.of(context).enterDigitsCodeSubtitle,
           style: context.regular14TextSub,
         ),
         SizedBox(height: 24.h),
@@ -126,7 +127,7 @@ class _ResetPasswordFlowBottomSheetState
         ),
 
         SizedBox(height: 36.h),
-        CustomAppButton(text: 'Continue', onPressed: _nextStep),
+        CustomAppButton(text: S.of(context).continueText, onPressed: _nextStep),
         SizedBox(height: 24.h),
       ],
     );
@@ -137,26 +138,29 @@ class _ResetPasswordFlowBottomSheetState
       key: const ValueKey(2),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Reset Password', style: context.bold24Black),
+        Text(S.of(context).resetPasswordTitle, style: context.bold24Black),
         SizedBox(height: 12.h),
         Text(
-          'Set the new password for your account so you can login and access all the features.',
+          S.of(context).resetPasswordSubtitle,
           style: context.regular14TextSub,
         ),
         SizedBox(height: 27.h),
         CustomTextFormField(
-          labelText: 'New Password',
+          labelText: S.of(context).newPassword,
           controller: _newPassController,
           isPassword: true,
         ),
         SizedBox(height: 18.h),
         CustomTextFormField(
-          labelText: 'Re-enter Password',
+          labelText: S.of(context).reEnterPassword,
           controller: _confirmPassController,
           isPassword: true,
         ),
         SizedBox(height: 24.h),
-        CustomAppButton(text: 'Update Password', onPressed: _nextStep),
+        CustomAppButton(
+          text: S.of(context).updatePassword,
+          onPressed: _nextStep,
+        ),
         SizedBox(height: 24.h),
       ],
     );

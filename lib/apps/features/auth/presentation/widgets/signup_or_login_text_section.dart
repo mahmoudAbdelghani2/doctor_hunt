@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/generated/image_assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,12 +31,12 @@ class SignupOrLoginTextSection extends StatelessWidget {
           children: [
             _customCardWidget(
               iconPath: kGoogleIconPath,
-              title: "Google",
+              title: S.of(context).google,
               context: context,
             ),
             _customCardWidget(
               iconPath: kFacebookIconPath,
-              title: "Facebook",
+              title: S.of(context).facebook,
               context: context,
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/app_background.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/choose_role_text_section.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/select_role_section.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
                     ),
                     Spacer(),
                     CustomAppButton(
-                      text: "Continue",
+                      text: S.of(context).continueText,
                       onPressed: () {
                         GoRouter.of(context).pushReplacement(kSignupPath);
                       },

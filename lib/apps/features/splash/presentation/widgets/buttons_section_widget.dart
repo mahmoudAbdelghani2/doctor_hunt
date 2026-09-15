@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,13 +22,13 @@ class ButtonsSectionWidget extends StatelessWidget {
       child: Column(
         children: [
           CustomAppButton(
-            text: isLastPage ? 'Get Started' : 'Next',
+            text: isLastPage ? S.of(context).getStarted : S.of(context).next,
             onPressed: onNext,
           ),
           SizedBox(height: 12.h),
           TextButton(
             onPressed: onSkip,
-            child: Text('Skip', style: context.regular14TextSub),
+            child: Text(S.of(context).skip, style: context.regular14TextSub),
           ),
         ],
       ),

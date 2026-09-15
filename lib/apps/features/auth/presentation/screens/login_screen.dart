@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_risht
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/reset_pass_bottomsheet.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
 import 'package:doctor_hunt/generated/app_colors.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,9 +39,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         SignupOrLoginTextSection(
-                          title: "Welcome back",
-                          subtitle:
-                              "You can search course, apply course and find scholarship for abroad studies",
+                          title: S.of(context).welcomeBack,
+                          subtitle: S.of(context).authSubtitle,
                         ),
                         SizedBox(height: 37.h),
                         CustomTextFormField(
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                             return null;
                           },
-                          labelText: 'Email',
+                          labelText: S.of(context).email,
                           isPassword: false,
                         ),
                         SizedBox(height: 18.h),
@@ -63,12 +63,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                             return null;
                           },
-                          labelText: 'Password',
+                          labelText: S.of(context).password,
                           isPassword: true,
                         ),
                         SizedBox(height: 32.h),
                         CustomAppButton(
-                          text: "Login",
+                          text: S.of(context).login,
                           onPressed: () {
                             GoRouter.of(context).pushReplacement(kMainPath);
                           },
@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             },
                             child: Text(
-                              "Forgot Password?",
+                              S.of(context).forgotPassword,
                               style: context.regular14TextSub.copyWith(
                                 color: AppColors.primary,
                               ),
@@ -100,8 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         SizedBox(height: 50.h),
                         CustomRishTextWidget(
-                          text1: "Don't have an account? ",
-                          text2: "Sign Up",
+                          text1: "${S.of(context).dontHaveAccount} ",
+                          text2: S.of(context).signUp,
                           onTap: () {
                             GoRouter.of(context).pushReplacement(kSignupPath);
                           },

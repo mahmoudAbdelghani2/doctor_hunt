@@ -4,6 +4,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_rishtext_widget.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,9 +38,8 @@ class _SigupScreenState extends State<SigupScreen> {
                     child: Column(
                       children: [
                         SignupOrLoginTextSection(
-                          title: "Join us to start searching",
-                          subtitle:
-                              "You can search course, apply course and find scholarship for abroad studies",
+                          title: S.of(context).joinUs,
+                          subtitle: S.of(context).authSubtitle,
                         ),
                         SizedBox(height: 34.h),
                         CustomTextFormField(
@@ -50,7 +50,7 @@ class _SigupScreenState extends State<SigupScreen> {
                             }
                             return null;
                           },
-                          labelText: 'Name',
+                          labelText: S.of(context).name,
                           isPassword: false,
                         ),
                         SizedBox(height: 18.h),
@@ -62,7 +62,7 @@ class _SigupScreenState extends State<SigupScreen> {
                             }
                             return null;
                           },
-                          labelText: 'Email',
+                          labelText: S.of(context).email,
                           isPassword: false,
                         ),
                         SizedBox(height: 18.h),
@@ -74,7 +74,7 @@ class _SigupScreenState extends State<SigupScreen> {
                             }
                             return null;
                           },
-                          labelText: 'Password',
+                          labelText: S.of(context).password,
                           isPassword: true,
                         ),
                         SizedBox(height: 14.h),
@@ -91,22 +91,22 @@ class _SigupScreenState extends State<SigupScreen> {
                             ),
                             SizedBox(width: 10.w),
                             Text(
-                              "I agree with the Terms of Service & Privacy Policy",
+                              S.of(context).termsAndPrivacy,
                               style: context.regular12TextSub,
                             ),
                           ],
                         ),
                         SizedBox(height: 55.h),
                         CustomAppButton(
-                          text: 'Sign Up',
+                          text: S.of(context).signUp,
                           onPressed: () {
-                            GoRouter.of(context).pushReplacement(kLoginPath);
+                            GoRouter.of(context).pushReplacement(kMainPath);
                           },
                         ),
                         SizedBox(height: 17.h),
                         CustomRishTextWidget(
-                          text1: "Already have an account? ",
-                          text2: "Login",
+                          text1: "${S.of(context).haveAccount} ",
+                          text2: S.of(context).login,
                           onTap: () {
                             GoRouter.of(context).pushReplacement(kLoginPath);
                           },
