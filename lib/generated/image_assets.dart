@@ -14,3 +14,4 @@ const kEyeIconPath = 'assets/images/eye.svg';
 const kPlayIconPath = 'assets/images/playIcon.svg';
 const kStarIconPath = 'assets/images/starIcon.svg';
 const kLoveIconPath = 'assets/images/loveIcon.svg';
+const kLocationMapPath = 'assets/images/map.png';
