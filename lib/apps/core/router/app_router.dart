@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/screens%20for%20test/test_screen.d
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/choose_role_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/signup_screen.dart';
+import 'package:doctor_hunt/apps/features/doctor/presentation/screens/find_doctor_screen.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/screens/home_screen.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/screens/main_screen.dart';
 import 'package:doctor_hunt/apps/features/splash/presentation/screens/onboarding_screen.dart';
@@ -32,6 +33,11 @@ abstract class AppRouter {
       GoRoute(
         path: kSignupPath,
         builder: (context, state) => const SigupScreen(),
+      ),
+
+      GoRoute(
+        path: kFindDoctorPath,
+        builder: (context, state) => const FindDoctorScreen(),
       ),
 
       StatefulShellRoute.indexedStack(

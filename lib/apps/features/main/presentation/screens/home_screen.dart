@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/apps/core/utils/consts.dart';
 import 'package:doctor_hunt/apps/core/widgets/app_background.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/widgets/category_list_widget.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/widgets/feature_doctor_listview.dart';
@@ -8,6 +9,7 @@ import 'package:doctor_hunt/generated/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,7 +61,15 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Popular Doctors', style: context.bold18Black),
-                          Text('See All >', style: context.regular14TextSub),
+                          TextButton(
+                            onPressed: () {
+                              GoRouter.of(context).push(kFindDoctorPath);
+                            },
+                            child: Text(
+                              'See All >',
+                              style: context.regular14TextSub,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(height: 10.h),
@@ -69,7 +79,15 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Feature Doctor', style: context.bold18Black),
-                          Text('See All >', style: context.regular14TextSub),
+                          TextButton(
+                            onPressed: () {
+                              GoRouter.of(context).push(kFindDoctorPath);
+                            },
+                            child: Text(
+                              'See All >',
+                              style: context.regular14TextSub,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(height: 22.h),
