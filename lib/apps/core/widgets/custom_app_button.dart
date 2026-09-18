@@ -27,6 +27,11 @@ class CustomAppButton extends StatelessWidget {
           backgroundColor: backgroundColor ?? AppColors.primary,
           elevation: 0,
           shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: backgroundColor == null
+                  ? Colors.transparent
+                  : AppColors.primary,
+            ),
             borderRadius: BorderRadius.circular(10.r),
           ),
         ),

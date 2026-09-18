@@ -6,3 +6,4 @@ const kOnboardingPath = '/onboarding';
 const kChooseRolePath = '/choose-role';
 const kFindDoctorPath = '/find-doctor';
 const kDoctorDetailsPath = '/doctor-details';
+const kDoctorSelectTimePath = '/doctor-select-time';

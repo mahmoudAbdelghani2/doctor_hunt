@@ -4,6 +4,7 @@ import 'package:doctor_hunt/apps/features/auth/presentation/screens/choose_role_
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/signup_screen.dart';
 import 'package:doctor_hunt/apps/features/doctor/presentation/screens/doctor_details_screen.dart';
+import 'package:doctor_hunt/apps/features/doctor/presentation/screens/doctor_select_time_screen.dart';
 import 'package:doctor_hunt/apps/features/doctor/presentation/screens/find_doctor_screen.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/screens/home_screen.dart';
 import 'package:doctor_hunt/apps/features/main/presentation/screens/main_screen.dart';
@@ -44,6 +45,11 @@ abstract class AppRouter {
       GoRoute(
         path: kDoctorDetailsPath,
         builder: (context, state) => const DoctorDetailsScreen(),
+      ),
+
+      GoRoute(
+        path: kDoctorSelectTimePath,
+        builder: (context, state) => const DoctorSelectTimeScreen(),
       ),
 
       StatefulShellRoute.indexedStack(
