@@ -3,6 +3,8 @@
 import 'package:doctor_hunt/apps/core/logic/locale_cubit.dart';
 import 'package:doctor_hunt/apps/core/network/api_consts.dart';
 import 'package:doctor_hunt/apps/core/router/app_router.dart';
+import 'package:doctor_hunt/apps/features/auth/data/service/auth_supabase_service.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/controllers/auth_bloc/auth_bloc.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,8 +32,13 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return BlocProvider(
-          create: (context) => LocaleCubit(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<LocaleCubit>(create: (context) => LocaleCubit()),
+            BlocProvider<AuthBloc>(
+              create: (context) => AuthBloc(AuthSupabaseService()),
+            ),
+          ],
           child: BlocBuilder<LocaleCubit, Locale>(
             builder: (context, currentLocale) {
               return MaterialApp.router(

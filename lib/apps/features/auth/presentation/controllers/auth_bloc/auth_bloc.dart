@@ -9,6 +9,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this.authService) : super(AuthInitial()) {
     on<LoginEvent>(_onLogin);
     on<SignUpEvent>(_onSignUp);
+    on<LogoutEvent>(_onLogout);
   }
 
   Future<void> _onLogin(LoginEvent event, Emitter<AuthState> emit) async {
@@ -32,6 +33,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         name: event.name,
       );
       emit(AuthSuccess());
+    } catch (e) {
+      emit(AuthFailure(errorMessage: e.toString()));
+    }
+  }
+
+  Future<void> _onLogout(LogoutEvent event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+
+    try {
+      await authService.logout();
+      emit(AuthLoggedOut());
     } catch (e) {
       emit(AuthFailure(errorMessage: e.toString()));
     }
