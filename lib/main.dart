@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:doctor_hunt/apps/core/logic/locale_cubit.dart';
+import 'package:doctor_hunt/apps/core/network/api_consts.dart';
 import 'package:doctor_hunt/apps/core/router/app_router.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: ApiConstants.supabaseUrl,
+    anonKey: ApiConstants.supabaseAnonKey,
+  );
   runApp(const MyApp());
 }
 
