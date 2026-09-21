@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/screens%20for%20test/test_screen.d
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/choose_role_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/login_screen.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/signup_screen.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/select_role_section.dart';
 import 'package:doctor_hunt/apps/features/doctor/presentation/screens/doctor_details_screen.dart';
 import 'package:doctor_hunt/apps/features/doctor/presentation/screens/doctor_select_time_screen.dart';
 import 'package:doctor_hunt/apps/features/doctor/presentation/screens/find_doctor_screen.dart';
@@ -30,7 +31,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kLoginPath,
-        builder: (context, state) => const LoginScreen(),
+        builder: (context, state) {
+          final userRole = (state.extra as UserRole?) ?? UserRole.patient;
+          return LoginScreen(userRole: userRole);
+        },
       ),
       GoRoute(
         path: kSignupPath,

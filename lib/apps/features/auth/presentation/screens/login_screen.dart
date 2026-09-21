@@ -4,6 +4,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_app_button.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/custom_rishtext_widget.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/reset_pass_bottomsheet.dart';
+import 'package:doctor_hunt/apps/features/auth/presentation/widgets/select_role_section.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widgets/signup_or_login_text_section.dart';
 import 'package:doctor_hunt/generated/app_colors.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
@@ -13,7 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final UserRole userRole;
+  const LoginScreen({super.key, required this.userRole});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -23,6 +25,14 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,13 +109,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(height: 50.h),
-                        CustomRishTextWidget(
-                          text1: "${S.of(context).dontHaveAccount} ",
-                          text2: S.of(context).signUp,
-                          onTap: () {
-                            GoRouter.of(context).pushReplacement(kSignupPath);
-                          },
-                        ),
+                        if (widget.userRole != UserRole.patient)
+                          SizedBox(height: 30.h)
+                        else
+                          CustomRishTextWidget(
+                            text1: "${S.of(context).dontHaveAccount} ",
+                            text2: S.of(context).signUp,
+                            onTap: () {
+                              GoRouter.of(context).pushReplacement(kSignupPath);
+                            },
+                          ),
                         SizedBox(height: 30.h),
                       ],
                     ),
