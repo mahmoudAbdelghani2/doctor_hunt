@@ -61,7 +61,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
       ),
 
-      obscureText: obscureText,
+      obscureText: widget.isPassword ? obscureText : false,
       validator: widget.validator,
     );
   }
