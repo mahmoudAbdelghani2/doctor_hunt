@@ -41,7 +41,9 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
                     CustomAppButton(
                       text: S.of(context).continueText,
                       onPressed: () {
-                        GoRouter.of(context).pushReplacement(kSignupPath);
+                        GoRouter.of(
+                          context,
+                        ).pushReplacement(kLoginPath, extra: _selectedRole);
                       },
                     ),
                   ],
